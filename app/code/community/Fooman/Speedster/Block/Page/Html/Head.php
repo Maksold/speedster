@@ -222,6 +222,10 @@ class Fooman_Speedster_Block_Page_Html_Head extends Mage_Page_Block_Html_Head
             }
         }
 
+        $chunk = str_replace($prefix, '', $chunk);
+        $chunk = SpeedsterMinify::encodeMinURL($chunk);
+        $chunk = $prefix.'/'.$chunk;
+        
         $chunks[] = $chunk;
         return $chunks;
     }
