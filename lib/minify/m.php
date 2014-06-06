@@ -56,6 +56,7 @@ if (strlen($dir[0]) == 0) {
 // Serve
 if (isset($_GET['f'])) {
     $_GET['f'] = str_replace("\x00", '', (string)$_GET['f']);
+    $_GET['f'] = SpeedsterMinify::decodeMinURL($_GET['f']);
     $filenames = explode(",", $_GET['f']);
     $filenamePattern = '/[^\'"\\/\\\\]+\\.(?:' . implode('|', $serveExtensions) . ')$/';
 
