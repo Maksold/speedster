@@ -20,6 +20,9 @@ class SpeedsterMinify extends Minify
      */
     static public function decodeMinURL($str)
     {
+        if (strpos($str, '.js') !== false || strpos($str, '.css') !== false) {
+            return $str;
+        }
         if (strpos($str, '/') === 0) {
             $str = substr($str, 1);
         }
